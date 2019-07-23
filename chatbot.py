@@ -2,7 +2,7 @@
 import random
 
 def intro():
-    print("Hi! Welcome to Joyce's chatbot.")
+    print("Hi! Welcome to this chatbot.")
 
 def process_input(answer):
     if is_valid_input(answer):
