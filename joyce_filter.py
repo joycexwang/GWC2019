@@ -25,11 +25,11 @@ def save_img(winkng_cat, kitty):
 #       Parameters: The image object to apply the filter to.
 #       Returns: A New Image object with the filter applied.
 
-def obamicon(winking_cat):
-    darkBlue = (0,51,76)
-    red = (217, 26, 33)
-    lightBlue = (112, 150, 158)
-    yellow = (252, 227, 166)
+def blue(winking_cat):
+    darkBlue = (100, 150,233)
+    red = (0, 26, 33)
+    lightBlue = (45, 125, 158)
+    yellow = (200, 227, 324)
 
     new_img = []
     pixels = list(winking_cat.getdata())
@@ -38,13 +38,13 @@ def obamicon(winking_cat):
         intensity = p[0] + p[1] + p[2]
 
         if intensity < 182:
-            new_img.append(darkBlue)
+            new_img.append(red)
         elif intensity >= 182 and intensity <364:
             new_img.append(red)
         elif intensity >= 364 and intensity < 546:
             new_img.append(lightBlue)
         elif intensity >=546:
-            new_img.append(yellow)
+            new_img.append(red)
 
     newim = Image.new("RGB", (500,427))
     newim.putdata(new_img)
@@ -52,20 +52,8 @@ def obamicon(winking_cat):
 
     winking_cat= Image.open("winking_cat.jpg")
 
-def greyscale(winking_cat):
-    pixels = list(winking_cat.getdata()) # gets pixels from image I loaded
-    new_img = []
-
-    for p in pixels:
-        intensity = (int(p[0] + p[1] + p[2])/3, int(p[0] + p[1] + p[2])/3, int(p[0] + p[1] + p[2])/3)
-        new_img.append(intensity)
-    newim = Image.new("RGB", (500,427), p)
-    newim.putdata(new_img)
-    return newim
-
 
 im = load_img("winking_cat.jpg")
 show_img(im)
 
-newpi = obamicon(im)
-newpic1 = greyscale(im)
+newpic = blue(im)

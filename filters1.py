@@ -6,20 +6,20 @@ from PIL import Image
 # Define your load_img() function here.
 #       Parameters: The name of the file to be opened (string)
 #       Returns: The image object with the opened file.
-def load_img(winking_cat):
-    im = Image.open(winking_cat)
+def load_img(sleeping_cat):
+    im = Image.open(sleeping_cat)
     return im
 # Define your show_img() function here.
 #       Parameters: The image object to display.
 #       Returns: nothing.
-def show_img(winking_cat):
-    winking_cat.show()
+def show_img(sleeping_cat):
+    sleeping_cat.show()
 
 # Define your save_img() function here.
 #       Parameters: The image object to save, the name to save the file as (string)
 #       Returns: nothing.
-def save_img(winkng_cat, kitty):
-    winking_cat.save(kitty)
+def save_img(sleeping_cat, quiet):
+    sleeping_cat.save(quiet)
 
 # Define your obamicon() function here.
 #       Parameters: The image object to apply the filter to.
@@ -52,20 +52,8 @@ def obamicon(winking_cat):
 
     winking_cat= Image.open("winking_cat.jpg")
 
-def greyscale(winking_cat):
-    pixels = list(winking_cat.getdata()) # gets pixels from image I loaded
-    new_img = []
-
-    for p in pixels:
-        intensity = (int(p[0] + p[1] + p[2])/3, int(p[0] + p[1] + p[2])/3, int(p[0] + p[1] + p[2])/3)
-        new_img.append(intensity)
-    newim = Image.new("RGB", (500,427), p)
-    newim.putdata(new_img)
-    return newim
-
 
 im = load_img("winking_cat.jpg")
 show_img(im)
 
-newpi = obamicon(im)
-newpic1 = greyscale(im)
+newpic = obamicon(im)
